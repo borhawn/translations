@@ -52,8 +52,15 @@ PROTECTED_RE = re.compile(
     r"Marinha Grande|ISO|IATF|SA ?8000|BSCI|SMETA|Sedex|C-?TPAT|GMP|AQL|REACH|"
     r"RoHS|EMC|LVD|CE|EN ?\d+|NDT|CMM|DUPRO|PSI|ANSI|ASQC|MIL[- ]?STD|amfori|CPR|"
     r"Nike|Costco|Walmart|Disney|Tesco|Target|Good Manufacturing Practice|"
-    r"Acceptable Quality Limit|Quality Control|\[[^\]]*\]|&[a-zA-Z#0-9]+;|[\W\d_]+",
+    r"Acceptable Quality Limit|Quality Control|"
+    # Certification schemes and standards bodies keep their registered names.
+    r"Responsible Down Standard|Global Recycled Standard|OEKO-TEX|GOTS|BLUESIGN|"
+    r"DesignLights Consortium|Energy Star|UL|ETL|VDE|T\u00dcV|Intertek|SGS|"
+    r"FSC|PEFC|BRC|IFS|HACCP|FDA|LFGB|ASTM|DIN|BS EN|NF|UNE|JIS|GB",
     re.IGNORECASE)
+
+# Media library entries are image filenames, not prose.
+FILENAME_RE = re.compile(r"^[\w.-]+$")
 
 
 def unprotected_len(text):
@@ -115,7 +122,9 @@ def check(work, code, units, verbose=True):
                 and unprotected_len(source) > 12):
             bad("identical-to-english", i)
         # Only meaningful when there is real prose to render in the script.
-        if script and unprotected_len(source) > 20 and not in_script(target, script):
+        if (script and unprotected_len(source) > 20
+                and not FILENAME_RE.match(source.strip())
+                and not in_script(target, script)):
             bad("target-script-absent", i)
 
         # CJK and Thai encode the same meaning in far fewer characters.
