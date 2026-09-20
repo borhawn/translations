@@ -46,38 +46,60 @@ def in_script(text, ranges):
     return any(lo <= ord(c) <= hi for c in text for lo, hi in ranges)
 
 # Short strings that legitimately stay identical in most languages.
-PROTECTED_RE = re.compile(
-    r"Portugal Quality Control|Portugal|Lisbon\w*|Porto|Braga|Aveiro|Coimbra|"
-    r"Leiria|Set\u00fabal|Guimar\u00e3es|Viana do Castelo|Faro|Sines|Leix\u00f5es|"
-    r"Marinha Grande|ISO|IATF|SA ?8000|BSCI|SMETA|Sedex|C-?TPAT|GMP|AQL|REACH|"
-    r"RoHS|EMC|LVD|CE|EN ?\d+|NDT|CMM|DUPRO|PSI|ANSI|ASQC|MIL[- ]?STD|amfori|CPR|"
-    r"Nike|Costco|Walmart|Disney|Tesco|Target|Good Manufacturing Practice|"
-    r"Acceptable Quality Limit|Quality Control|"
-    # Certification schemes and standards bodies keep their registered names.
-    r"Responsible Down Standard|Global Recycled Standard|OEKO-TEX|GOTS|BLUESIGN|"
-    r"DesignLights Consortium|Energy Star|UL|ETL|VDE|T\u00dcV|Intertek|SGS|"
-    r"FSC|PEFC|BRC|IFS|HACCP|FDA|LFGB|ASTM|DIN|BS EN|NF|UNE|JIS|GB|"
-    # Acronym expansions are the schemes' own registered English names and are
-    # conventionally left in English beside the acronym, in every language.
-    r"International Electrotechnical Commission|"
-    r"International Organization for Standardization|"
-    r"Business Social Compliance Initiative|"
-    r"Customs[- ]Trade Partnership Against Terrorism|"
-    r"Sedex Members Ethical Trade Audit|"
-    r"Social Accountability International|"
-    r"Global Standard for Packaging and Packaging Materials|"
-    r"Restriction of Hazardous Substances|"
-    r"Registration,? Evaluation,? Authorisation and Restriction of Chemicals|"
-    r"Conformit\u00e9 Europ\u00e9enne|Standards?",
-    re.IGNORECASE)
+# Terms that legitimately survive untranslated. Built longest-first, because
+# Python alternation is leftmost-first: with "Sedex" before "Sedex Members
+# Ethical Trade Audit", the short branch wins and the rest looks untranslated.
+_PROTECTED_TERMS = [
+    # Scheme and standards-body names, kept in English beside their acronym.
+    "International Electrotechnical Commission",
+    "International Organization for Standardization",
+    "Registration, Evaluation, Authorisation and Restriction of Chemicals",
+    "Registration Evaluation Authorisation and Restriction of Chemicals",
+    "Global Standard for Packaging and Packaging Materials",
+    "Hazard Analysis and Critical Control Points",
+    "Customs-Trade Partnership Against Terrorism",
+    "Customs Trade Partnership Against Terrorism",
+    "Business Social Compliance Initiative",
+    "Sedex Members Ethical Trade Audit",
+    "Social Accountability International",
+    "Restriction of Hazardous Substances",
+    "Good Manufacturing Practice",
+    "Responsible Down Standard",
+    "Global Recycled Standard",
+    "Acceptable Quality Limit",
+    "DesignLights Consortium",
+    "CEC Title 20 and Title 24",
+    "AP (Approved Product) Seal",
+    "Approved Product",
+    "Conformit\u00e9 Europ\u00e9enne",
+    "Quality Control", "Energy Star", "Marinha Grande", "Viana do Castelo",
+    "Portugal Quality Control",
+    # Companies, places, acronyms.
+    "OEKO-TEX", "BLUESIGN", "Intertek", "amfori", "Walmart", "Costco",
+    "Disney", "Tesco", "Target", "Nike", "Sedex", "SMETA", "BSCI", "CTPAT",
+    "C-TPAT", "SA8000", "SA 8000", "IATF", "ISO", "GMP", "AQL", "REACH",
+    "RoHS", "EMC", "LVD", "NDT", "CMM", "DUPRO", "PSI", "ANSI", "ASQC",
+    "MIL-STD", "MIL STD", "CPR", "GOTS", "FSC", "PEFC", "BRC", "IFS",
+    "HACCP", "FDA", "LFGB", "ASTM", "DIN", "UNE", "JIS", "SGS", "VDE",
+    "ETL", "UL", "CE", "GB", "NF",
+    "Lisbonne", "Lisbon", "Porto", "Braga", "Aveiro", "Coimbra", "Leiria",
+    "Set\u00fabal", "Guimar\u00e3es", "Leix\u00f5es", "Sines", "Faro", "Portugal",
+    "Standards", "Standard",
+]
 
-# Media library entries are image filenames, not prose.
-FILENAME_RE = re.compile(r"^[\w.-]+$")
+PROTECTED_RE = re.compile(
+    "|".join(sorted((re.escape(t) for t in _PROTECTED_TERMS), key=len, reverse=True))
+    + r"|EN ?\d+|\[[^\]]*\]|&[a-zA-Z#0-9]+;|[\W\d_]+",
+    re.IGNORECASE)
 
 
 def unprotected_len(text):
     """Characters left once protected terms and punctuation are removed."""
     return len(PROTECTED_RE.sub("", text).strip())
+
+
+# Media library entries are image filenames, not prose.
+FILENAME_RE = re.compile(r"^[\w.-]+$")
 
 
 ALLOWED_IDENTICAL = re.compile(
