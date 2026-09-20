@@ -36,6 +36,21 @@ SCRIPT_RANGES = {
 }
 
 # Short strings that legitimately stay identical in most languages.
+PROTECTED_RE = re.compile(
+    r"Portugal Quality Control|Portugal|Lisbon\w*|Porto|Braga|Aveiro|Coimbra|"
+    r"Leiria|Set\u00fabal|Guimar\u00e3es|Viana do Castelo|Faro|Sines|Leix\u00f5es|"
+    r"Marinha Grande|ISO|IATF|SA ?8000|BSCI|SMETA|Sedex|C-?TPAT|GMP|AQL|REACH|"
+    r"RoHS|EMC|LVD|CE|EN ?\d+|NDT|CMM|DUPRO|PSI|ANSI|ASQC|MIL[- ]?STD|amfori|CPR|"
+    r"Nike|Costco|Walmart|Disney|Tesco|Target|Good Manufacturing Practice|"
+    r"Acceptable Quality Limit|Quality Control|\[[^\]]*\]|&[a-zA-Z#0-9]+;|[\W\d_]+",
+    re.IGNORECASE)
+
+
+def unprotected_len(text):
+    """Characters left once protected terms and punctuation are removed."""
+    return len(PROTECTED_RE.sub("", text).strip())
+
+
 ALLOWED_IDENTICAL = re.compile(
     r"^(?:[\W\d_]+|[A-Z]{2,6}|ISO\b.*|EN \d+|SA8000|BSCI|SMETA|Sedex|CTPAT|GMP|"
     r"AQL|REACH|RoHS|CE|NDT|CMM|DUPRO|PSI|ANSI|ASQC|MIL-STD|amfori|IATF.*|"
@@ -73,14 +88,18 @@ def check(work, code, units, verbose=True):
             bad(f"{unit['kind']}-over-{limit}", f"{i} ({len(html.unescape(target))})")
 
         if (len(source) > 25 and target == source
-                and not ALLOWED_IDENTICAL.match(source.strip())):
+                and not ALLOWED_IDENTICAL.match(source.strip())
+                and unprotected_len(source) > 12):
             bad("identical-to-english", i)
-        if script and len(target) > 12 and not any(
+        # Only meaningful when there is real prose to render in the script.
+        if script and unprotected_len(source) > 20 and not any(
                 script[0] <= ord(c) <= script[1] for c in target):
             bad("target-script-absent", i)
 
+        # CJK and Thai encode the same meaning in far fewer characters.
+        low, high = (0.12, 2.5) if code in langs.CJK else (0.25, 3.0)
         ratio = len(target) / max(len(source), 1)
-        if len(source) > 60 and (ratio > 3.0 or ratio < 0.25):
+        if len(source) > 60 and not (low <= ratio <= high):
             bad("suspicious-length-ratio", f"{i} (x{ratio:.1f})")
 
     done = sum(1 for u in units if u["uid"] in cache)
