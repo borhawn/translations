@@ -101,6 +101,22 @@ def unprotected_len(text):
 # Media library entries are image filenames, not prose.
 FILENAME_RE = re.compile(r"^[\w.-]+$")
 
+# An acronym expansion sits next to its acronym, which the markup splits off:
+# "(Global Organic Textile Standard)", "Better Cotton Initiative (".
+# These are registered scheme names and stay in English in every language.
+_MINOR = {"of", "and", "for", "the", "in", "on", "to", "a", "an"}
+
+
+def is_scheme_name(text):
+    stripped = text.strip()
+    if not (stripped.startswith("(") or stripped.endswith("(")
+            or stripped.endswith(")")):
+        return False
+    words = [w for w in re.findall(r"[A-Za-z][\w'-]*", stripped)]
+    if len(words) < 2:
+        return False
+    return all(w[0].isupper() or w.lower() in _MINOR for w in words)
+
 
 ALLOWED_IDENTICAL = re.compile(
     r"^(?:[\W\d_]+|[A-Z]{2,6}|ISO\b.*|EN \d+|SA8000|BSCI|SMETA|Sedex|CTPAT|GMP|"
@@ -153,6 +169,7 @@ def check(work, code, units, verbose=True):
 
         if (len(source) > 25 and target == source
                 and not ALLOWED_IDENTICAL.match(source.strip())
+                and not is_scheme_name(source)
                 and unprotected_len(source) > 12):
             bad("identical-to-english", i)
         # Only meaningful when there is real prose to render in the script.
