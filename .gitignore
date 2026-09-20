@@ -1,3 +1,6 @@
 *.csv
-work/
+!source-export.csv
+work/*
+!work/glossary/
+!work/translations/
 __pycache__/

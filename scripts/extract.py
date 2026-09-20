@@ -88,9 +88,33 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("csv")
     ap.add_argument("--out", default="work")
+    ap.add_argument("--seo", default="seo/en.json",
+                    help="reviewed English SEO baseline; its strings replace the "
+                         "CSV's for extraction, so what gets translated is what "
+                         "assemble.py will actually write")
     args = ap.parse_args()
 
     ex = E.load(args.csv)
+
+    seo = {}
+    if os.path.exists(args.seo):
+        with open(args.seo, encoding="utf-8") as fh:
+            seo = json.load(fh)["pages"]
+    for row in ex.english:
+        entry = seo.get(row[E.ID])
+        if not entry:
+            continue
+        if entry.get("title"):
+            row[E.SEO_TITLE] = entry["title"]
+        if entry.get("description"):
+            row[E.SEO_DESC] = entry["description"]
+        if entry.get("focus_keyword"):
+            row[E.FOCUS_KEYWORD] = entry["focus_keyword"]
+        # Open Graph falls back to the SEO pair, so it needs the same strings.
+        if not row[E.OG_TITLE].strip():
+            row[E.OG_TITLE] = row[E.SEO_TITLE]
+        if not row[E.OG_DESC].strip():
+            row[E.OG_DESC] = row[E.SEO_DESC]
     os.makedirs(args.out, exist_ok=True)
 
     pages = [extract_page(r) for r in ex.english]
