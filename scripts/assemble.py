@@ -9,6 +9,7 @@ Original 161 rows are copied byte-for-byte; the new rows are appended.
 
 import argparse
 import datetime
+import html
 import json
 import os
 import sys
@@ -69,9 +70,14 @@ def build_row(source, code, translations, seo, now):
                      (E.FOCUS_KEYWORD, "focus_keyword")):
         english = entry.get(key) or (source[col] if key != "focus_keyword" else "")
         row[col] = tr(english) if english else ""
-    # Open Graph falls back to the SEO pair when the English row has none.
-    for col, seo_col in ((E.OG_TITLE, E.SEO_TITLE), (E.OG_DESC, E.SEO_DESC)):
-        row[col] = tr(source[col]) if source[col].strip() else row[seo_col]
+    # Open Graph falls back to the SEO pair when the English row has none, and
+    # also when the site's own OG string overflows its budget (several do).
+    for col, seo_col, limit in ((E.OG_TITLE, E.SEO_TITLE, 60),
+                                (E.OG_DESC, E.SEO_DESC, 155)):
+        candidate = tr(source[col]) if source[col].strip() else row[seo_col]
+        if len(html.unescape(candidate)) > limit:
+            candidate = row[seo_col]
+        row[col] = candidate
 
     for name, col in PLAIN_FIELDS.items():
         if name in ("seo_title", "seo_description", "og_title",
