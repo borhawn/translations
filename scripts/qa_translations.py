@@ -28,12 +28,22 @@ PLACEHOLDER_RE = re.compile(r"\{\{[^{}]*\}\}|%[a-z_]+%|\[/?[a-zA-Z0-9_\-][^\]]*\
 SEO_LIMITS = {"seo_title": 60, "seo_description": 155}
 
 SCRIPT_RANGES = {
-    "arabic": (0x0600, 0x06FF), "cyrillic": (0x0400, 0x04FF),
-    "greek": (0x0370, 0x03FF), "hebrew": (0x0590, 0x05FF),
-    "devanagari": (0x0900, 0x097F), "thai": (0x0E00, 0x0E7F),
-    "japanese": (0x3040, 0x30FF), "korean": (0xAC00, 0xD7AF),
-    "chinese": (0x4E00, 0x9FFF),
+    "arabic":     [(0x0600, 0x06FF), (0x0750, 0x077F)],
+    "cyrillic":   [(0x0400, 0x04FF)],
+    "greek":      [(0x0370, 0x03FF), (0x1F00, 0x1FFF)],
+    "hebrew":     [(0x0590, 0x05FF)],
+    "devanagari": [(0x0900, 0x097F)],
+    "thai":       [(0x0E00, 0x0E7F)],
+    # Japanese prose is routinely pure kanji, so the CJK ideograph block counts.
+    "japanese":   [(0x3040, 0x30FF), (0x4E00, 0x9FFF), (0x3400, 0x4DBF)],
+    # Korean uses Hangul, and Hanja still appears in technical copy.
+    "korean":     [(0xAC00, 0xD7AF), (0x1100, 0x11FF), (0x4E00, 0x9FFF)],
+    "chinese":    [(0x4E00, 0x9FFF), (0x3400, 0x4DBF)],
 }
+
+
+def in_script(text, ranges):
+    return any(lo <= ord(c) <= hi for c in text for lo, hi in ranges)
 
 # Short strings that legitimately stay identical in most languages.
 PROTECTED_RE = re.compile(
@@ -57,11 +67,24 @@ ALLOWED_IDENTICAL = re.compile(
     r"Nike|Costco|Walmart|Disney|Tesco|Target|Portugal.*)$")
 
 
+def load_exceptions(work):
+    path = os.path.join(work, "qa-exceptions.json")
+    if not os.path.exists(path):
+        return {}
+    with open(path, encoding="utf-8") as fh:
+        return json.load(fh)
+
+
 def check(work, code, units, verbose=True):
     cache = load_cache(work, code)
+    accepted = load_exceptions(work).get(code, {})
     problems = {}
 
     def bad(kind, detail):
+        index = str(detail).split(" ")[0]
+        entry = accepted.get(index)
+        if entry and entry.get("check") == kind:
+            return
         problems.setdefault(kind, []).append(detail)
 
     script = SCRIPT_RANGES.get(langs.script(code))
@@ -92,8 +115,7 @@ def check(work, code, units, verbose=True):
                 and unprotected_len(source) > 12):
             bad("identical-to-english", i)
         # Only meaningful when there is real prose to render in the script.
-        if script and unprotected_len(source) > 20 and not any(
-                script[0] <= ord(c) <= script[1] for c in target):
+        if script and unprotected_len(source) > 20 and not in_script(target, script):
             bad("target-script-absent", i)
 
         # CJK and Thai encode the same meaning in far fewer characters.

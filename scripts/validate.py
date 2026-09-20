@@ -25,12 +25,22 @@ SERIAL_COLUMNS = (24, 25, 30, 32, 35, 37, 39, 53, 54, 55, 56)
 
 # Script ranges used to catch "translated" text that is still English.
 SCRIPT_RANGES = {
-    "arabic": (0x0600, 0x06FF), "cyrillic": (0x0400, 0x04FF),
-    "greek": (0x0370, 0x03FF), "hebrew": (0x0590, 0x05FF),
-    "devanagari": (0x0900, 0x097F), "thai": (0x0E00, 0x0E7F),
-    "japanese": (0x3040, 0x30FF), "korean": (0xAC00, 0xD7AF),
-    "chinese": (0x4E00, 0x9FFF),
+    "arabic":     [(0x0600, 0x06FF), (0x0750, 0x077F)],
+    "cyrillic":   [(0x0400, 0x04FF)],
+    "greek":      [(0x0370, 0x03FF), (0x1F00, 0x1FFF)],
+    "hebrew":     [(0x0590, 0x05FF)],
+    "devanagari": [(0x0900, 0x097F)],
+    "thai":       [(0x0E00, 0x0E7F)],
+    # Japanese prose is routinely pure kanji, so the CJK ideograph block counts.
+    "japanese":   [(0x3040, 0x30FF), (0x4E00, 0x9FFF), (0x3400, 0x4DBF)],
+    # Korean uses Hangul, and Hanja still appears in technical copy.
+    "korean":     [(0xAC00, 0xD7AF), (0x1100, 0x11FF), (0x4E00, 0x9FFF)],
+    "chinese":    [(0x4E00, 0x9FFF), (0x3400, 0x4DBF)],
 }
+
+
+def in_script(text, ranges):
+    return any(lo <= ord(c) <= hi for c in text for lo, hi in ranges)
 
 
 class Report:
@@ -50,10 +60,8 @@ def visible(text):
 
 
 def has_target_script(text, code):
-    span = SCRIPT_RANGES.get(langs.script(code))
-    if not span:
-        return True
-    return any(span[0] <= ord(c) <= span[1] for c in text)
+    ranges = SCRIPT_RANGES.get(langs.script(code))
+    return True if not ranges else in_script(text, ranges)
 
 
 def check_row(row, source, report):
