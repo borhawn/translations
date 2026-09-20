@@ -69,20 +69,29 @@ def main():
     ap.add_argument("--tsv")
     ap.add_argument("--from", dest="start", type=int, default=0)
     ap.add_argument("--count", type=int, default=200)
+    ap.add_argument("--to", dest="end", type=int, default=None,
+                    help="inclusive last index; overrides --count")
+    ap.add_argument("--missing", action="store_true",
+                    help="with --lang, list only units not yet translated")
     ap.add_argument("--max-chars", type=int, default=0)
     args = ap.parse_args()
 
     units = load_units(args.work)
 
     if args.action == "list":
-        end = min(args.start + args.count, len(units))
-        total = 0
+        end = (args.end + 1) if args.end is not None else args.start + args.count
+        end = min(end, len(units))
+        cache = load_cache(args.work, args.lang) if (args.missing and args.lang) else None
+        total = printed = 0
         for i in range(args.start, end):
+            if cache is not None and units[i]["uid"] in cache:
+                continue
             text = units[i]["text"]
-            if args.max_chars and total + len(text) > args.max_chars and i > args.start:
+            if args.max_chars and total + len(text) > args.max_chars and printed:
                 break
             print(f"{i}\t{encode(text)}")
             total += len(text)
+            printed += 1
         return
 
     if args.action == "todo":
