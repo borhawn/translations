@@ -42,6 +42,27 @@ Workers must not run git commands and must touch only their own language, so
 several can run concurrently without conflicting — each language is a separate
 file.
 
+## Check alignment, not just quality
+
+```bash
+python3 scripts/check_alignment.py --work work --all
+```
+
+A worker producing `index<TAB>text` can drop or duplicate a line and shift every
+translation after it by one. The result is individually valid text attached to
+the wrong source unit, which `qa_translations.py` cannot see - nothing about any
+single line is malformed. One worker hit this and caught it itself; the detector
+exists so the next one is caught either way.
+
+It keys on digits only, because a number in the source survives translation
+unchanged while vocabulary does not. A first attempt scored vocabulary overlap
+and was useless - it flagged hundreds of correct translations, because a
+correctly translated term no longer matches its English form.
+
+Expect a few "review" lines that are correct localisations: "9AM to 6PM" becomes
+"9 bis 18 Uhr", "After 9/11" becomes "Nach dem 11. September", "24/7" becomes
+"24時間365日". Only the "likely shift" lines matter.
+
 ## Assemble and validate a finished language
 
 A language is deployable as soon as it is complete; it does not wait for the
