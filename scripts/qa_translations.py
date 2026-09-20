@@ -56,7 +56,19 @@ PROTECTED_RE = re.compile(
     # Certification schemes and standards bodies keep their registered names.
     r"Responsible Down Standard|Global Recycled Standard|OEKO-TEX|GOTS|BLUESIGN|"
     r"DesignLights Consortium|Energy Star|UL|ETL|VDE|T\u00dcV|Intertek|SGS|"
-    r"FSC|PEFC|BRC|IFS|HACCP|FDA|LFGB|ASTM|DIN|BS EN|NF|UNE|JIS|GB",
+    r"FSC|PEFC|BRC|IFS|HACCP|FDA|LFGB|ASTM|DIN|BS EN|NF|UNE|JIS|GB|"
+    # Acronym expansions are the schemes' own registered English names and are
+    # conventionally left in English beside the acronym, in every language.
+    r"International Electrotechnical Commission|"
+    r"International Organization for Standardization|"
+    r"Business Social Compliance Initiative|"
+    r"Customs[- ]Trade Partnership Against Terrorism|"
+    r"Sedex Members Ethical Trade Audit|"
+    r"Social Accountability International|"
+    r"Global Standard for Packaging and Packaging Materials|"
+    r"Restriction of Hazardous Substances|"
+    r"Registration,? Evaluation,? Authorisation and Restriction of Chemicals|"
+    r"Conformit\u00e9 Europ\u00e9enne|Standards?",
     re.IGNORECASE)
 
 # Media library entries are image filenames, not prose.
