@@ -352,11 +352,14 @@ Collect the 5 categories, 280 tags, 276 relation tags and the recurring brand
 terms (`Portugal Quality Control`, service names, city names). Output:
 `work/glossary.en.json`.
 
-**Step 4 — Three decisions.** *(the only manual gate)*
-1. SEO: option A, B or C from §5.
-2. Slugs for non-Latin languages: romanise or reuse English.
-3. Revolution Slider: supply the alias map, or keep the English alias
-   everywhere.
+**Step 4 — Three decisions.** *(decided — see `docs/pipeline.md`)*
+1. SEO: **option B**. English baseline written first in `seo/en.json`, reviewed,
+   then translated.
+2. Slugs: **whatever WordPress does**, as the homepage shows — Latin scripts
+   transliterated, non-Latin percent-encoded.
+3. Revolution Slider: **keep the English parent's alias** in every language.
+
+Also decided: `<img>` `alt` and `title` are **not** translated.
 
 **Step 5 — Translate the glossary, 37 languages.**
 One batch job, ~21 K short strings. Human-reviewable in a single spreadsheet —

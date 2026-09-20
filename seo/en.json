@@ -1,0 +1,735 @@
+{
+  "_note": "Step 4B: English SEO baseline. \"existing\" = the site's own human-written value, kept as is. \"rewritten\" = the site's value overflowed Google's limits (title 60 / description 155 visible chars) and was shortened; the original is preserved in was_title / was_description. \"generated\" = newly written because the page had none. focus_keyword is new for all 119 pages.",
+  "pages": {
+    "8": {
+      "source": "rewritten",
+      "focus_keyword": "portugal quality inspection",
+      "was_title": "Portugal Quality Inspection, Factory Audit &amp; Quality Control Services",
+      "was_description": "Portugal-based quality inspection, factory audit, vendor evaluation, preshipment inspection, production monitoring, defect sorting, and cargo survey services. Ensure product quality and supplier reliability with our trusted third-party inspection solutions.",
+      "title": "Portugal Quality Inspection & Factory Audit Services",
+      "description": "Portugal-based quality inspection, factory audit, vendor evaluation, defect sorting and cargo survey services for importers and buyers."
+    },
+    "9": {
+      "source": "generated",
+      "title": "Quality Inspection Company in Portugal | About Us",
+      "description": "Portugal Quality Control is an independent inspection company based in Portugal, providing quality inspections, factory audits and product testing.",
+      "focus_keyword": "inspection company portugal"
+    },
+    "10": {
+      "source": "generated",
+      "title": "Our Values: Ethical Quality Control in Portugal",
+      "description": "Trust, transparency and reliability at the core of our quality control services in Portugal. Discover the commitments behind our inspection work.",
+      "focus_keyword": "quality control company portugal"
+    },
+    "11": {
+      "source": "rewritten",
+      "focus_keyword": "inspection standards portugal",
+      "was_title": "Inspection Standards in Portugal: Ensuring Quality &amp; Compliance",
+      "was_description": "Explore the key inspection standards followed in Portugal, ensuring quality control, factory audits, vendor evaluations, production monitoring, and cargo surveys. Our services comply with international standards to guarantee product reliability and supplier performance.",
+      "title": "Inspection Standards in Portugal | AQL & ISO 2859",
+      "description": "The inspection standards we work to in Portugal: ANSI/ASQC Z1.4, ISO 2859 and MIL-STD-105E AQL sampling, applied on site at your supplier."
+    },
+    "12": {
+      "source": "rewritten",
+      "focus_keyword": "portugal industrial cities inspection",
+      "was_title": "Portugal Industrial Cities: Quality Inspection &amp; Vendor Audits in Lisbonne, Porto, Braga, and More",
+      "was_description": "We provide quality inspection, factory audits, vendor evaluations, and production monitoring in Lisbonne, Marinha Grande, Leiria, Braga, Porto, Aveiro, Coimbra, Setúbal, Guimarães, Viana do Castelo, and Faro.",
+      "title": "Inspection & Vendor Audits Across Portugal's Cities",
+      "description": "Quality inspection, factory audits and production monitoring in Lisbon, Porto, Braga, Aveiro, Coimbra, Leiria, Setúbal, Guimarães and Faro."
+    },
+    "13": {
+      "source": "rewritten",
+      "focus_keyword": "product inspection portugal",
+      "was_title": "Product Quality Inspection in Portugal: Ensuring Compliance &amp; Reliability",
+      "was_description": "Discover professional product quality inspection services in Portugal, ensuring compliance, reliability, and performance. Our experts conduct factory audits, production monitoring, preshipment inspections, and defect sorting to meet industry standards and supplier requirements.",
+      "title": "Products We Inspect in Portugal | Quality Control",
+      "description": "The product types we inspect in Portugal, from raw materials and hardlines to softlines, food and industrial goods, with on-site AQL sampling."
+    },
+    "17": {
+      "source": "generated",
+      "title": "Inspection Services in Portugal | Quality Check",
+      "description": "Independent quality inspection services in Portugal: pre-shipment, during production, container loading and defect sorting at your supplier's site.",
+      "focus_keyword": "inspection services portugal"
+    },
+    "18": {
+      "source": "rewritten",
+      "focus_keyword": "initial production inspection portugal",
+      "was_title": "Initial Production Inspection in Portugal: Quality Control",
+      "was_description": "Ensure top quality with Initial Production Inspection in Portugal. Trust Portugal Quality Control for thorough inspections before production starts.",
+      "title": "Initial Production Inspection in Portugal | IPI",
+      "description": "Initial production inspection in Portugal before mass production starts. Catch material and setup problems while they are still cheap to fix."
+    },
+    "19": {
+      "source": "generated",
+      "title": "During Production Inspection in Portugal (DUPRO)",
+      "description": "DUPRO inspection in Portugal from 20% production completion. Catch defects early and keep your mass production on quality and on schedule.",
+      "focus_keyword": "during production inspection portugal"
+    },
+    "20": {
+      "source": "generated",
+      "title": "Pre-Shipment Inspection in Portugal | PSI Services",
+      "description": "Independent pre-shipment inspection in Portugal. We verify quantity, workmanship and packing against your specifications before goods leave the factory.",
+      "focus_keyword": "pre-shipment inspection portugal"
+    },
+    "21": {
+      "source": "generated",
+      "title": "Production Monitoring Services in Portugal",
+      "description": "Keep daily control over your mass production in Portugal. Our inspectors monitor output, quality and schedule directly at your supplier's factory.",
+      "focus_keyword": "production monitoring portugal"
+    },
+    "22": {
+      "source": "generated",
+      "title": "Defective Product Sorting in Portugal | Rework",
+      "description": "Sort and rework defective products at your vendor's factory or warehouse in Portugal. Salvage shipments and avoid costly delays with on-site sorting.",
+      "focus_keyword": "defect sorting portugal"
+    },
+    "23": {
+      "source": "generated",
+      "title": "Full Inspection in Portugal | 100% Inspection",
+      "description": "100% inspection in Portugal: every unit checked against your quality standards. Ideal for high-value goods and zero-defect customer requirements.",
+      "focus_keyword": "full inspection portugal"
+    },
+    "24": {
+      "source": "generated",
+      "title": "Container Loading Inspection in Portugal | CLS",
+      "description": "Container loading supervision in Portugal. We verify goods, quantity, packing and loading conditions before your container is sealed and shipped.",
+      "focus_keyword": "container loading inspection portugal"
+    },
+    "25": {
+      "source": "generated",
+      "title": "Vendor Audit in Portugal | Factory Audit Services",
+      "description": "Independent vendor and factory audits in Portugal. Verify that your supplier is genuine, capable and compliant before you send a deposit.",
+      "focus_keyword": "vendor audit portugal"
+    },
+    "26": {
+      "source": "generated",
+      "title": "Lite Vendor Assessment in Portugal | Supplier Check",
+      "description": "A fast, affordable supplier evaluation in Portugal. Verify that your vendor is genuine and capable before committing to mass production.",
+      "focus_keyword": "supplier evaluation portugal"
+    },
+    "27": {
+      "source": "generated",
+      "title": "ISO 9001 Factory Audit in Portugal | QMS Audit",
+      "description": "ISO 9001 based quality management system audit in Portugal. Evaluate your supplier's processes, documentation and capability before you commit.",
+      "focus_keyword": "iso 9001 audit portugal"
+    },
+    "28": {
+      "source": "generated",
+      "title": "IATF 16949 Audit in Portugal | Automotive QMS",
+      "description": "IATF 16949 based automotive quality management audit in Portugal. Verify that your supplier meets automotive industry system requirements.",
+      "focus_keyword": "iatf 16949 audit portugal"
+    },
+    "29": {
+      "source": "generated",
+      "title": "ISO 13485 Audit in Portugal | Medical Device QMS",
+      "description": "ISO 13485 based medical device quality system audit in Portugal. Confirm your supplier can meet medical device manufacturing requirements.",
+      "focus_keyword": "iso 13485 audit portugal"
+    },
+    "30": {
+      "source": "generated",
+      "title": "AS 9100 Audit in Portugal | Aerospace QMS Audit",
+      "description": "AS 9100 based aerospace quality management audit in Portugal. Assess your supplier against aerospace industry system requirements.",
+      "focus_keyword": "as 9100 audit portugal"
+    },
+    "31": {
+      "source": "generated",
+      "title": "ISO 22000 Audit in Portugal | Food Safety QMS",
+      "description": "ISO 22000 based food safety management audit in Portugal. Verify your supplier's food safety system before sourcing food products.",
+      "focus_keyword": "iso 22000 audit portugal"
+    },
+    "32": {
+      "source": "generated",
+      "title": "Sedex Social Audit in Portugal | Ethical Audit",
+      "description": "Sedex based social compliance audit in Portugal. Verify labour conditions, health and safety and ethical practices at your supplier's factory.",
+      "focus_keyword": "sedex audit portugal"
+    },
+    "33": {
+      "source": "generated",
+      "title": "SA8000 Social Audit in Portugal | Labour Standards",
+      "description": "SA8000 based social audit in Portugal covering child labour, forced labour, health and safety, and working hours at your supplier's site.",
+      "focus_keyword": "sa8000 audit portugal"
+    },
+    "34": {
+      "source": "generated",
+      "title": "BSCI Social Audit in Portugal | amfori Compliance",
+      "description": "amfori BSCI based social compliance audit in Portugal. Assess labour standards, safety and ethical practices across your supply chain.",
+      "focus_keyword": "bsci audit portugal"
+    },
+    "35": {
+      "source": "generated",
+      "title": "SMETA Audit in Portugal | 2 and 4 Pillar Audits",
+      "description": "SMETA 2 and 4 pillar social audits in Portugal covering labour, health and safety, environment and business ethics at your supplier.",
+      "focus_keyword": "smeta audit portugal"
+    },
+    "36": {
+      "source": "generated",
+      "title": "CTPAT Audit in Portugal | Supply Chain Security",
+      "description": "CTPAT security audit in Portugal. Verify your supplier's supply chain security controls for shipments entering the United States.",
+      "focus_keyword": "ctpat audit portugal"
+    },
+    "37": {
+      "source": "generated",
+      "title": "ISO 14001 Environmental Audit in Portugal",
+      "description": "ISO 14000 based environmental management audit in Portugal. Assess your supplier's environmental controls, waste handling and compliance.",
+      "focus_keyword": "iso 14001 audit portugal"
+    },
+    "38": {
+      "source": "generated",
+      "title": "GMP Audit in Portugal | Good Manufacturing Practice",
+      "description": "GMP based audit in Portugal for food, cosmetics and pharmaceutical suppliers. Verify hygiene, process control and manufacturing practice.",
+      "focus_keyword": "gmp audit portugal"
+    },
+    "39": {
+      "source": "generated",
+      "title": "Product Lab Testing & Certification in Portugal",
+      "description": "Accredited laboratory testing and certification in Portugal. Chemical, physical, electrical and safety testing for compliance with EU standards.",
+      "focus_keyword": "product testing portugal"
+    },
+    "40": {
+      "source": "generated",
+      "title": "Electronic Product Testing in Portugal | CE & EMC",
+      "description": "Electronic product testing and certification in Portugal. EMC, LVD, RoHS and safety testing to place your products on the EU market.",
+      "focus_keyword": "electronic product testing portugal"
+    },
+    "41": {
+      "source": "generated",
+      "title": "Textile Testing Services in Portugal | Lab Tests",
+      "description": "Textile and fabric laboratory testing in Portugal. Composition, colour fastness, shrinkage and REACH chemical testing for EU compliance.",
+      "focus_keyword": "textile testing portugal"
+    },
+    "42": {
+      "source": "generated",
+      "title": "Toy Testing & Certification in Portugal | EN 71",
+      "description": "Toy and children's product testing in Portugal. EN 71, REACH and CE marking tests for mechanical, chemical and flammability safety.",
+      "focus_keyword": "toy testing portugal"
+    },
+    "43": {
+      "source": "generated",
+      "title": "Furniture Testing Services in Portugal | EN Tests",
+      "description": "Furniture laboratory testing in Portugal. Strength, stability, durability and flammability tests to EN standards for the EU market.",
+      "focus_keyword": "furniture testing portugal"
+    },
+    "44": {
+      "source": "generated",
+      "title": "Sporting Goods Testing Services in Portugal",
+      "description": "Sports and outdoor equipment testing in Portugal. Mechanical strength, durability, materials and safety testing for EU compliance.",
+      "focus_keyword": "sporting goods testing portugal"
+    },
+    "45": {
+      "source": "generated",
+      "title": "Lighting Product Testing in Portugal | CE & LVD",
+      "description": "Lighting and luminaire testing in Portugal. Photometric, electrical safety, EMC and energy efficiency tests for CE marking.",
+      "focus_keyword": "lighting testing portugal"
+    },
+    "46": {
+      "source": "generated",
+      "title": "Electrical Product Testing in Portugal | CE & LVD",
+      "description": "Electrical appliance and equipment testing in Portugal. Safety, EMC, RoHS and energy labelling tests for EU market access.",
+      "focus_keyword": "electrical product testing portugal"
+    },
+    "47": {
+      "source": "generated",
+      "title": "Industrial Product Testing Services in Portugal",
+      "description": "Industrial product and component testing in Portugal. Material, mechanical, dimensional and performance testing to international standards.",
+      "focus_keyword": "industrial product testing portugal"
+    },
+    "48": {
+      "source": "generated",
+      "title": "Cosmetic Product Testing in Portugal | EU Rules",
+      "description": "Cosmetic product testing in Portugal. Microbiological, stability, heavy metals and EU Regulation 1223/2009 compliance testing.",
+      "focus_keyword": "cosmetic testing portugal"
+    },
+    "49": {
+      "source": "generated",
+      "title": "Building Material Testing in Portugal | CE Marking",
+      "description": "Construction and building material testing in Portugal. Strength, durability, fire and CE marking tests under the CPR.",
+      "focus_keyword": "building material testing portugal"
+    },
+    "50": {
+      "source": "generated",
+      "title": "Industries We Inspect in Portugal | Quality Control",
+      "description": "Quality inspection, factory audit and product testing across every industry we cover in Portugal, from raw materials to finished consumer goods.",
+      "focus_keyword": "industries quality inspection portugal"
+    },
+    "51": {
+      "source": "generated",
+      "title": "Food & Food Packaging Testing in Portugal",
+      "description": "Food and food contact material testing in Portugal. Migration, microbiological and regulatory compliance testing for the EU market.",
+      "focus_keyword": "food testing portugal"
+    },
+    "52": {
+      "source": "rewritten",
+      "focus_keyword": "cargo survey portugal",
+      "was_title": "Cargo Survey Portugal | Damage, Discharge &amp; Quantity Survey Services",
+      "was_description": "Professional cargo survey services in Portugal including damage survey, discharge survey and quantity verification. Independent inspections in Lisbon, Sines, Leixões and major Portuguese ports.",
+      "title": "Cargo Survey Portugal | Damage & Quantity Survey",
+      "description": "Independent cargo survey in Portugal: damage, discharge and quantity verification at Lisbon, Sines, Leixões and other Portuguese ports."
+    },
+    "53": {
+      "source": "generated",
+      "title": "Materials & Commodities Inspection in Portugal",
+      "description": "Quality inspection and testing of raw materials and commodities in Portugal, including minerals, scrap, chemicals and agricultural goods.",
+      "focus_keyword": "materials inspection portugal"
+    },
+    "54": {
+      "source": "generated",
+      "title": "Hardlines Quality Inspection in Portugal",
+      "description": "Hardlines quality inspection in Portugal covering furniture, homeware, hardware, toys, electronics and other durable consumer goods.",
+      "focus_keyword": "hardlines inspection portugal"
+    },
+    "55": {
+      "source": "generated",
+      "title": "Softlines Quality Inspection in Portugal",
+      "description": "Softlines quality inspection in Portugal for apparel, fabric, yarn, footwear, bags and other textile products before shipment.",
+      "focus_keyword": "softlines inspection portugal"
+    },
+    "56": {
+      "source": "generated",
+      "title": "Technical & Industrial Inspection in Portugal",
+      "description": "Technical and industrial product inspection in Portugal covering machinery, automotive parts, tooling, metal and plastic components.",
+      "focus_keyword": "industrial inspection portugal"
+    },
+    "57": {
+      "source": "generated",
+      "title": "Food Quality Inspection in Portugal | Food Safety",
+      "description": "Food quality inspection in Portugal for fresh, frozen, canned and packaged food, covering safety, labelling and packaging compliance.",
+      "focus_keyword": "food inspection portugal"
+    },
+    "58": {
+      "source": "generated",
+      "title": "Contact Portugal Quality Control | Get a Quote",
+      "description": "Contact our quality assurance specialists in Portugal. Tell us about your inspection, audit or testing needs and we will reply with a quote.",
+      "focus_keyword": "contact quality control portugal"
+    },
+    "533": {
+      "source": "rewritten",
+      "focus_keyword": "portugal quality control",
+      "was_title": "Portugal Quality Control: Inspection &amp; Vendor Audit Services",
+      "was_description": "Portugal Quality Inspection Services: Quality Control based quality inspectors, factory auditors for quality inspection, factory audit, defect sorting, and cargo survey services. Ensure supplier reliability and product compliance with our expert quality control solutions tailored to your industry needs.",
+      "title": "Portugal Quality Control | Inspection & Vendor Audit",
+      "description": "Portugal-based quality inspectors and factory auditors for quality inspection, factory audit, defect sorting and cargo survey. Secure your supply chain."
+    },
+    "538": {
+      "source": "generated",
+      "title": "Quality Control Blog | Portugal Quality Control",
+      "description": "Insights, tips and updates on quality inspection, factory audits and product testing in Portugal from our quality management experts.",
+      "focus_keyword": "quality control blog portugal"
+    },
+    "648": {
+      "source": "generated",
+      "title": "Product Quality Inspections in Portugal",
+      "description": "Product quality inspection services in Portugal at every production stage, from initial production to pre-shipment and container loading.",
+      "focus_keyword": "product inspection services portugal"
+    },
+    "649": {
+      "source": "generated",
+      "title": "Special Inspection Services in Portugal",
+      "description": "Specialised inspection services in Portugal for unique requirements, including drone, dimensional and non-destructive testing inspections.",
+      "focus_keyword": "special inspection portugal"
+    },
+    "650": {
+      "source": "generated",
+      "title": "Logistic Inspection Services in Portugal",
+      "description": "Logistics inspection services in Portugal covering container loading supervision, cargo monitoring and cargo survey at ports and warehouses.",
+      "focus_keyword": "logistic inspection services portugal"
+    },
+    "651": {
+      "source": "generated",
+      "title": "Supplier Evaluations in Portugal | Vendor Checks",
+      "description": "Supplier evaluation services in Portugal, from lite vendor assessments to extensive audits, to verify capability before you place an order.",
+      "focus_keyword": "vendor evaluation services portugal"
+    },
+    "652": {
+      "source": "generated",
+      "title": "Standard Based Audits in Portugal | ISO & Social",
+      "description": "Standard based audits in Portugal against ISO, IATF, SA8000, BSCI, SMETA and other recognised international certification schemes.",
+      "focus_keyword": "standard based audit portugal"
+    },
+    "653": {
+      "source": "generated",
+      "title": "Retailer Based Audits in Portugal | Compliance",
+      "description": "Retailer based audits in Portugal verifying supplier compliance with the specific programmes of Walmart, Costco, Target, Disney and others.",
+      "focus_keyword": "retailer audit portugal"
+    },
+    "671": {
+      "source": "generated",
+      "title": "Quality Control Resources for Portugal Sourcing",
+      "description": "Guides, methodologies and reference material on quality inspection, factory audits and product testing when sourcing from Portugal.",
+      "focus_keyword": "quality control resources portugal"
+    },
+    "673": {
+      "source": "generated",
+      "title": "Audit Methodology in Portugal | How We Audit",
+      "description": "How Portugal Quality Control plans and performs factory and social audits, from checklist design to reporting and corrective action follow-up.",
+      "focus_keyword": "audit methodology portugal"
+    },
+    "675": {
+      "source": "generated",
+      "title": "Inspection Methodology in Portugal | AQL Sampling",
+      "description": "Our inspection methodology in Portugal, based on ANSI/ASQC Z1.4, ISO 2859 and MIL-STD-105E AQL sampling performed on site at your supplier.",
+      "focus_keyword": "inspection methodology portugal"
+    },
+    "677": {
+      "source": "generated",
+      "title": "Quality Inspection Blog in Portugal | Expert Tips",
+      "description": "Articles and advice on quality inspection in Portugal: defect prevention, AQL sampling, supplier management and import risk reduction.",
+      "focus_keyword": "quality inspection blog portugal"
+    },
+    "679": {
+      "source": "generated",
+      "title": "Quality Inspection FAQ | Portugal Quality Control",
+      "description": "Answers to common questions about quality inspection, factory audits, product testing, pricing and lead times in Portugal.",
+      "focus_keyword": "quality inspection faq portugal"
+    },
+    "681": {
+      "source": "generated",
+      "title": "Quality Control Glossary | Inspection Terms",
+      "description": "Definitions of quality control, inspection and audit terminology used in sourcing, manufacturing and import from Portugal.",
+      "focus_keyword": "quality control glossary"
+    },
+    "690": {
+      "source": "generated",
+      "title": "Product Quality Inspection in Portugal | On Site",
+      "description": "On-site product quality inspection in Portugal at every production stage. Independent inspectors, AQL sampling and reports within 24 hours.",
+      "focus_keyword": "product quality inspection portugal"
+    },
+    "693": {
+      "source": "generated",
+      "title": "Special Inspection Services in Portugal",
+      "description": "Customised and advanced inspection services in Portugal, including drone inspection, full inspection and factory-specialised quality checks.",
+      "focus_keyword": "special inspection services portugal"
+    },
+    "695": {
+      "source": "generated",
+      "title": "Logistic Inspection Services in Portugal | Cargo",
+      "description": "Logistic inspection services in Portugal: container loading supervision, cargo monitoring and pre-shipment checks across Portuguese ports.",
+      "focus_keyword": "logistic inspection portugal"
+    },
+    "700": {
+      "source": "generated",
+      "title": "Supplier Evaluation in Portugal | Vendor Audits",
+      "description": "Supplier evaluation in Portugal through lite and extensive vendor assessments, second-party audits and credit checks before you commit.",
+      "focus_keyword": "second party audit portugal"
+    },
+    "702": {
+      "source": "generated",
+      "title": "Standards Based Audits in Portugal | ISO & Social",
+      "description": "International standard based audits in Portugal against ISO, IATF, SA8000, BSCI and SMETA, with training to help suppliers reach certification.",
+      "focus_keyword": "standards based audits portugal"
+    },
+    "704": {
+      "source": "generated",
+      "title": "Retail Audits in Portugal | Retailer Compliance",
+      "description": "Retail audits in Portugal verifying that vendors and factories meet the compliance standards set by major international retailers.",
+      "focus_keyword": "retail audit portugal"
+    },
+    "710": {
+      "source": "generated",
+      "title": "Homeware & Decor Quality Control in Portugal",
+      "description": "Quality control and product inspection for homeware and decoration in Portugal, covering norms, common defects and on-site inspection.",
+      "focus_keyword": "homeware quality control portugal"
+    },
+    "712": {
+      "source": "generated",
+      "title": "Lighting Quality Control in Portugal | Inspection",
+      "description": "Quality control and inspection for lighting products in Portugal, covering applicable norms, common defects and on-site verification.",
+      "focus_keyword": "lighting quality control portugal"
+    },
+    "714": {
+      "source": "generated",
+      "title": "Gift & Premium Quality Control in Portugal",
+      "description": "Quality control and inspection for gift and promotional items in Portugal, covering standards, frequent defects and on-site checks.",
+      "focus_keyword": "gift quality control portugal"
+    },
+    "716": {
+      "source": "generated",
+      "title": "Electronics & IT Quality Control in Portugal",
+      "description": "Quality control and inspection for electronics and IT products in Portugal, covering norms, functional testing and common defects.",
+      "focus_keyword": "electronics quality control portugal"
+    },
+    "718": {
+      "source": "generated",
+      "title": "Electrical Appliance Quality Control in Portugal",
+      "description": "Quality control and inspection for electrical appliances in Portugal, covering safety norms, functional checks and common defects.",
+      "focus_keyword": "electrical appliance quality control portugal"
+    },
+    "720": {
+      "source": "generated",
+      "title": "Packaging & Stationery Quality Control Portugal",
+      "description": "Quality control and inspection for packaging and stationery in Portugal, covering print quality, materials, norms and common defects.",
+      "focus_keyword": "packaging quality control portugal"
+    },
+    "722": {
+      "source": "generated",
+      "title": "Toys & Children Quality Control in Portugal",
+      "description": "Quality control and inspection for toys and children's products in Portugal, covering EN 71 safety norms and the most common defects.",
+      "focus_keyword": "toys quality control portugal"
+    },
+    "724": {
+      "source": "generated",
+      "title": "Cargo Transportation Monitoring in Portugal",
+      "description": "Monitor how your goods are handled and transported in Portugal. On-site verification of loading, transport conditions and cargo integrity.",
+      "focus_keyword": "cargo monitoring portugal"
+    },
+    "726": {
+      "source": "generated",
+      "title": "Dimensional Inspection Service in Portugal | CMM",
+      "description": "Dimensional inspection in Portugal using CMM, 3D scanning and precision metrology to verify part dimensions against your drawings.",
+      "focus_keyword": "dimensional inspection portugal"
+    },
+    "728": {
+      "source": "generated",
+      "title": "NDT Inspection Services in Portugal | Non-Destructive",
+      "description": "Non-destructive testing in Portugal: ultrasonic, magnetic particle, dye penetrant and eddy current inspection without damaging your parts.",
+      "focus_keyword": "ndt inspection portugal"
+    },
+    "733": {
+      "source": "generated",
+      "title": "Materials & Commodities Inspection in Portugal",
+      "description": "Independent inspection of raw materials and commodities in Portugal, covering quantity, quality, sampling and loading verification.",
+      "focus_keyword": "commodities inspection portugal"
+    },
+    "735": {
+      "source": "generated",
+      "title": "Hardlines Inspection in Portugal | Quality Checks",
+      "description": "Hardlines inspection in Portugal for furniture, homeware, hardware, toys and electronics, with AQL sampling at your supplier's factory.",
+      "focus_keyword": "hardlines inspection services portugal"
+    },
+    "737": {
+      "source": "generated",
+      "title": "Softlines Inspection in Portugal | Apparel Checks",
+      "description": "Softlines inspection in Portugal for apparel, textiles, footwear and bags, covering workmanship, measurements, labelling and packing.",
+      "focus_keyword": "softlines inspection services portugal"
+    },
+    "740": {
+      "source": "generated",
+      "title": "Careers | Join Portugal Quality Control",
+      "description": "Join our network of quality inspectors and factory auditors in Portugal. See current openings and how to apply.",
+      "focus_keyword": "quality inspector jobs portugal"
+    },
+    "742": {
+      "source": "generated",
+      "title": "Partners | Portugal Quality Control",
+      "description": "Partner with Portugal Quality Control to extend quality inspection, factory audit and product testing coverage for your clients.",
+      "focus_keyword": "quality control partners portugal"
+    },
+    "744": {
+      "source": "generated",
+      "title": "Benefits of Quality Control in Portugal",
+      "description": "Why importers use third-party quality control in Portugal: lower defect rates, fewer disputes, protected deposits and on-time shipments.",
+      "focus_keyword": "benefits quality control portugal"
+    },
+    "749": {
+      "source": "rewritten",
+      "focus_keyword": "quality assurance portugal",
+      "was_title": "Quality Assurance Solutions in Portugal: Ensuring Product Reliability &amp; Compliance",
+      "was_description": "Discover our comprehensive quality assurance solutions in Portugal, including quality control, factory audits, vendor evaluations, production monitoring, defect sorting, and cargo surveys. Ensure product reliability, compliance, and supplier performance with our expert services.",
+      "title": "Quality Assurance Solutions in Portugal | QMS & Audit",
+      "description": "Quality assurance in Portugal: QMS implementation, quality control, inspection, factory audits and supplier quality management for importers."
+    },
+    "753": {
+      "source": "generated",
+      "title": "Audit Standards in Portugal | ISO, Social, CTPAT",
+      "description": "The audit standards we work to in Portugal, including ISO 9001, IATF 16949, SA8000, BSCI, SMETA, CTPAT and GMP.",
+      "focus_keyword": "audit standards portugal"
+    },
+    "755": {
+      "source": "generated",
+      "title": "Testing & Certification Standards in Portugal",
+      "description": "The testing and certification standards we apply in Portugal, including CE marking, REACH, RoHS, EN 71 and ISO test methods.",
+      "focus_keyword": "testing standards portugal"
+    },
+    "759": {
+      "source": "generated",
+      "title": "Nike Supplier Audit in Portugal | Compliance",
+      "description": "Nike supplier audit in Portugal. Verify that your factory meets Nike's code of conduct and manufacturing compliance requirements.",
+      "focus_keyword": "nike audit portugal"
+    },
+    "761": {
+      "source": "generated",
+      "title": "Costco Supplier Audit in Portugal | Compliance",
+      "description": "Costco supplier audit in Portugal. Verify that your factory meets Costco's supplier compliance and social responsibility requirements.",
+      "focus_keyword": "costco audit portugal"
+    },
+    "763": {
+      "source": "generated",
+      "title": "Walmart Supplier Audit in Portugal | Compliance",
+      "description": "Walmart supplier audit in Portugal. Verify that your factory meets Walmart's responsible sourcing and factory compliance standards.",
+      "focus_keyword": "walmart audit portugal"
+    },
+    "765": {
+      "source": "generated",
+      "title": "Disney Supplier Audit in Portugal | FAMA Rules",
+      "description": "Disney supplier audit in Portugal. Verify that your factory meets Disney's FAMA and International Labor Standards requirements.",
+      "focus_keyword": "disney audit portugal"
+    },
+    "767": {
+      "source": "generated",
+      "title": "Tesco Supplier Audit in Portugal | Compliance",
+      "description": "Tesco supplier audit in Portugal. Verify that your factory meets Tesco's responsible sourcing and ethical trading requirements.",
+      "focus_keyword": "tesco audit portugal"
+    },
+    "769": {
+      "source": "generated",
+      "title": "Target Supplier Audit in Portugal | Compliance",
+      "description": "Target supplier audit in Portugal. Verify that your factory meets Target's vendor compliance and responsible sourcing standards.",
+      "focus_keyword": "target audit portugal"
+    },
+    "785": {
+      "source": "generated",
+      "title": "Sport Items Quality Control in Portugal",
+      "description": "Quality control and inspection for sports items in Portugal, covering applicable norms, product-specific checks and common defects.",
+      "focus_keyword": "sport items quality control portugal"
+    },
+    "787": {
+      "source": "generated",
+      "title": "Furniture Quality Control in Portugal | Inspection",
+      "description": "Quality control and inspection for furniture in Portugal, covering stability and strength norms, finish checks and common defects.",
+      "focus_keyword": "furniture quality control portugal"
+    },
+    "789": {
+      "source": "generated",
+      "title": "Hardware & Tools Quality Control in Portugal",
+      "description": "Quality control and inspection for hardware and tools in Portugal, covering applicable norms, functional checks and common defects.",
+      "focus_keyword": "hardware quality control portugal"
+    },
+    "794": {
+      "source": "generated",
+      "title": "Apparel Quality Control in Portugal | Inspection",
+      "description": "Apparel quality control in Portugal: inspection, lab testing and factory audit covering measurements, workmanship and labelling.",
+      "focus_keyword": "apparel quality control portugal"
+    },
+    "796": {
+      "source": "generated",
+      "title": "Yarn Quality Control in Portugal | Textile Tests",
+      "description": "Quality control and inspection for yarn in Portugal, covering count, twist, strength and evenness checks against textile standards.",
+      "focus_keyword": "yarn quality control portugal"
+    },
+    "798": {
+      "source": "generated",
+      "title": "Fabric Quality Control in Portugal | Textile Check",
+      "description": "Quality control and inspection for fabric in Portugal, covering composition, colour fastness, shrinkage and common weaving defects.",
+      "focus_keyword": "fabric quality control portugal"
+    },
+    "800": {
+      "source": "generated",
+      "title": "Footwear Quality Control in Portugal | Inspection",
+      "description": "Quality control and inspection for footwear in Portugal, covering sizing, bonding strength, materials and the most common defects.",
+      "focus_keyword": "footwear quality control portugal"
+    },
+    "802": {
+      "source": "generated",
+      "title": "Luggage & Bag Quality Control in Portugal",
+      "description": "Quality control and inspection for luggage and bags in Portugal, covering zippers, stitching, handles, materials and common defects.",
+      "focus_keyword": "luggage quality control portugal"
+    },
+    "804": {
+      "source": "generated",
+      "title": "Automotive Parts Quality Control in Portugal",
+      "description": "Quality control and inspection for automotive parts in Portugal, covering IATF requirements, dimensional checks and common defects.",
+      "focus_keyword": "automotive parts quality control portugal"
+    },
+    "806": {
+      "source": "generated",
+      "title": "Tooling & Mold Quality Control in Portugal",
+      "description": "Quality control and inspection for tooling and molds in Portugal, covering dimensional verification, trial runs and common defects.",
+      "focus_keyword": "tooling quality control portugal"
+    },
+    "808": {
+      "source": "generated",
+      "title": "Machinery Quality Control in Portugal | Inspection",
+      "description": "Quality control and inspection for machinery and vehicles in Portugal, covering safety norms, functional testing and common defects.",
+      "focus_keyword": "machinery quality control portugal"
+    },
+    "810": {
+      "source": "generated",
+      "title": "Construction Material Quality Control Portugal",
+      "description": "Quality control and inspection for construction materials in Portugal, covering CE marking, strength testing and common defects.",
+      "focus_keyword": "construction material quality control portugal"
+    },
+    "812": {
+      "source": "generated",
+      "title": "Plastic Parts Quality Control in Portugal",
+      "description": "Quality control and inspection for plastic parts and assemblies in Portugal, covering moulding defects, dimensions and material checks.",
+      "focus_keyword": "plastic parts quality control portugal"
+    },
+    "814": {
+      "source": "generated",
+      "title": "Metal Parts Quality Control in Portugal",
+      "description": "Quality control and inspection for metal parts and assemblies in Portugal, covering dimensions, finish, welding and material checks.",
+      "focus_keyword": "metal parts quality control portugal"
+    },
+    "816": {
+      "source": "generated",
+      "title": "Mechanical Parts Quality Control in Portugal",
+      "description": "Quality control and inspection for mechanical parts and assemblies in Portugal, covering tolerances, assembly checks and functionality.",
+      "focus_keyword": "mechanical parts quality control portugal"
+    },
+    "818": {
+      "source": "generated",
+      "title": "Electronic Parts Quality Control in Portugal",
+      "description": "Quality control and inspection for electronic components and assemblies in Portugal, covering functional testing and common defects.",
+      "focus_keyword": "electronic parts quality control portugal"
+    },
+    "820": {
+      "source": "generated",
+      "title": "Food Packaging Quality Control in Portugal",
+      "description": "Quality control and inspection for food packaging in Portugal, covering food contact compliance, print quality and sealing integrity.",
+      "focus_keyword": "food packaging quality control portugal"
+    },
+    "822": {
+      "source": "generated",
+      "title": "Canned Food Quality Control in Portugal",
+      "description": "Quality control and inspection for canned food in Portugal, covering seam integrity, labelling, net weight and food safety compliance.",
+      "focus_keyword": "canned food quality control portugal"
+    },
+    "824": {
+      "source": "generated",
+      "title": "Fresh Food Quality Control in Portugal | Checks",
+      "description": "Quality control and inspection for fresh food in Portugal, covering cold chain, freshness, grading and food safety compliance.",
+      "focus_keyword": "fresh food quality control portugal"
+    },
+    "826": {
+      "source": "generated",
+      "title": "Frozen Food Quality Control in Portugal",
+      "description": "Quality control and inspection for frozen food in Portugal, covering cold chain integrity, packaging, labelling and food safety.",
+      "focus_keyword": "frozen food quality control portugal"
+    },
+    "846": {
+      "source": "generated",
+      "title": "Chemical Quality Control in Portugal | Inspection",
+      "description": "Chemical product quality control and manufacturer audit in Portugal, covering composition, packaging, labelling and REACH compliance.",
+      "focus_keyword": "chemical quality control portugal"
+    },
+    "848": {
+      "source": "generated",
+      "title": "Agriculture Quality Control in Portugal",
+      "description": "Quality control and inspection for agricultural products in Portugal, covering grading, moisture, contamination and packing checks.",
+      "focus_keyword": "agriculture quality control portugal"
+    },
+    "850": {
+      "source": "generated",
+      "title": "Minerals Quality Control in Portugal | Inspection",
+      "description": "Quality control and inspection for minerals in Portugal, covering sampling, grading, moisture and quantity verification at loading.",
+      "focus_keyword": "minerals quality control portugal"
+    },
+    "861": {
+      "source": "generated",
+      "title": "Cosmetics Quality Control in Portugal | Checks",
+      "description": "Quality control and inspection for cosmetics in Portugal, covering packaging, labelling, fill level and EU regulatory compliance.",
+      "focus_keyword": "cosmetics quality control portugal"
+    },
+    "868": {
+      "source": "generated",
+      "title": "Scrap Quality Control & Inspection in Portugal",
+      "description": "Scrap metal and material inspection in Portugal, covering grading, contamination checks, weighing and container loading supervision.",
+      "focus_keyword": "scrap inspection portugal"
+    },
+    "3179": {
+      "source": "generated",
+      "title": "Quality Control Glossary | Portugal Inspection",
+      "description": "A glossary of quality control, inspection and factory audit terms used by importers sourcing from Portugal.",
+      "focus_keyword": "quality control glossary portugal"
+    }
+  }
+}
