@@ -13,6 +13,21 @@ python3 scripts/qa_translations.py --work work --all   # quality gate
 python3 scripts/plan_waves.py --work work --lang de    # remaining agent ranges
 ```
 
+## Worker configuration — learned the hard way
+
+**Use Sonnet, and run about three workers at a time.** Six concurrent Opus
+workers exhausted the account's session usage limit within minutes and all six
+were killed mid-run. Sonnet is far cheaper per token and is comfortably good
+enough here: the brief pins the terminology, the glossary pins the recurring
+terms, and `qa_translations.py` catches the mechanical failures.
+
+Nothing is lost when a worker is killed. Each batch is ingested to disk as soon
+as it is translated, so the most a dead worker costs is its one in-flight batch.
+The six killed workers had already banked 6,448 units between them.
+
+Tell each worker to ingest every batch immediately rather than accumulating
+them, and to use `--max-chars 6000` so a batch is quick to produce.
+
 ## Dispatch more work
 
 One worker per language per ~800-unit range; roughly 7 ranges cover a language,
