@@ -73,6 +73,10 @@ _PROTECTED_TERMS = [
     "CEC Title 20 and Title 24",
     "AP (Approved Product) Seal",
     "Approved Product",
+    "Global Standard for Food Safety",
+    "Non-GMO Project Verification",
+    "Non-GMO Project Verified",
+    "Non-GMO Project",
     "Conformit\u00e9 Europ\u00e9enne",
     "Quality Control", "Energy Star", "Marinha Grande", "Viana do Castelo",
     "Portugal Quality Control",
@@ -131,8 +135,8 @@ def is_scheme_name(text, next_text="", prev_text=""):
     stripped = text.strip()
     if not is_title_case_name(stripped):
         return False
-    if (stripped.startswith("(") or stripped.endswith("(")
-            or stripped.endswith(")")):
+    if (stripped.startswith("(") or stripped.startswith(")")
+            or stripped.endswith("(") or stripped.endswith(")")):
         return True
     if next_text.strip().startswith("("):
         return True

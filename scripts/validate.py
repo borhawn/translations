@@ -17,6 +17,8 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+from qa_translations import (MALFORMED_ENTITY_RE, is_scheme_name,
+                             unprotected_len)
 from wpml import export as E, langs, markup as M, phpserial as PS
 
 SEO_TITLE_MAX = 60
@@ -88,8 +90,15 @@ def check_row(row, source, report):
         report.fail("markup-sequence-changed", key)
     else:
         report.ok("markup-sequence")
-    if M.entity_signature(row[E.CONTENT]) != M.entity_signature(source[E.CONTENT]):
-        report.fail("html-entities-changed", key)
+    # Dropping an entity is a legitimate translation choice: Japanese renders
+    # "Materials &amp; Commodities" as 原材料・コモディティ, with no ampersand.
+    # Inventing one, or emitting a malformed &xxx, is the real error.
+    invented = (set(M.entity_signature(row[E.CONTENT]))
+                - set(M.entity_signature(source[E.CONTENT])))
+    if invented:
+        report.fail("html-entity-invented", f"{key} {sorted(invented)}")
+    elif MALFORMED_ENTITY_RE.search(row[E.CONTENT]):
+        report.fail("malformed-entity", key)
     else:
         report.ok("html-entities")
 
@@ -123,10 +132,17 @@ def check_row(row, source, report):
     report.ok("seo-length")
 
     # --- did anything actually get translated?
-    if source[E.TITLE].strip() and row[E.TITLE] == source[E.TITLE]:
+    # A page whose whole title is a protected term or an acronym ("FAQ",
+    # "Nike Audit in Portugal") legitimately comes back unchanged.
+    if (source[E.TITLE].strip() and row[E.TITLE] == source[E.TITLE]
+            and unprotected_len(source[E.TITLE]) > 12
+            and not is_scheme_name(source[E.TITLE])):
         report.fail("title-untranslated", key)
-    # A body made only of shortcodes (e.g. "[glossary]") has nothing to translate.
-    if M.translatable(M.tokenize(source[E.CONTENT])) and row[E.CONTENT] == source[E.CONTENT]:
+    # A body made only of shortcodes ("[glossary]") or of protected terms has
+    # nothing to translate.
+    body_units = M.translatable(M.tokenize(source[E.CONTENT]))
+    if (body_units and row[E.CONTENT] == source[E.CONTENT]
+            and any(unprotected_len(t) > 12 for t in body_units.values())):
         report.fail("body-untranslated", key)
     if len(row[E.TITLE]) > 8 and not has_target_script(row[E.TITLE], code):
         report.fail("wrong-script", f"{key}: {row[E.TITLE][:40]}")
