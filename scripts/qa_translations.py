@@ -115,13 +115,18 @@ def is_title_case_name(text):
             and all(w[0].isupper() or w.lower() in _MINOR for w in words))
 
 
-def is_scheme_name(text, next_text=""):
+BARE_ACRONYM_RE = re.compile(r"^[A-Z][A-Z0-9/&.-]{1,9}$")
+
+
+def is_scheme_name(text, next_text="", prev_text=""):
     """A registered scheme name, kept in English in every language.
 
-    The markup splits an expansion from its acronym, so the parenthesis can
-    land in this unit ("(Global Organic Textile Standard)", "Better Cotton
-    Initiative (") or in the one after it - "Forest Stewardship Council"
-    followed by "(FSC) Certification".
+    The markup splits an expansion from its acronym, and either side can land
+    in a neighbouring unit:
+      "(Global Organic Textile Standard)"  - parenthesis in this unit
+      "Better Cotton Initiative ("         - opening parenthesis trails
+      "Forest Stewardship Council"         - followed by "(FSC) Certification"
+      "Boiler and Pressure Vessel Code"    - preceded by the acronym "ASME"
     """
     stripped = text.strip()
     if not is_title_case_name(stripped):
@@ -129,7 +134,9 @@ def is_scheme_name(text, next_text=""):
     if (stripped.startswith("(") or stripped.endswith("(")
             or stripped.endswith(")")):
         return True
-    return next_text.strip().startswith("(")
+    if next_text.strip().startswith("("):
+        return True
+    return bool(BARE_ACRONYM_RE.match(prev_text.strip()))
 
 
 ALLOWED_IDENTICAL = re.compile(
@@ -165,6 +172,7 @@ def check(work, code, units, verbose=True):
             continue
         source = unit["text"]
         next_source = units[i + 1]["text"] if i + 1 < len(units) else ""
+        prev_source = units[i - 1]["text"] if i else ""
 
         if "\r" in target:
             bad("carriage-return-in-translation", i)
@@ -192,13 +200,13 @@ def check(work, code, units, verbose=True):
 
         if (len(source) > 25 and target == source
                 and not ALLOWED_IDENTICAL.match(source.strip())
-                and not is_scheme_name(source, next_source)
+                and not is_scheme_name(source, next_source, prev_source)
                 and unprotected_len(source) > 12):
             bad("identical-to-english", i)
         # Only meaningful when there is real prose to render in the script.
         if (script and unprotected_len(source) > 20
                 and not FILENAME_RE.match(source.strip())
-                and not is_scheme_name(source, next_source)
+                and not is_scheme_name(source, next_source, prev_source)
                 and not in_script(target, script)):
             bad("target-script-absent", i)
 
