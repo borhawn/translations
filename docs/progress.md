@@ -69,9 +69,13 @@ A language is deployable as soon as it is complete; it does not wait for the
 other 36.
 
 ```bash
-python3 scripts/assemble.py source-export.csv --work work --out de.csv --langs de
-python3 scripts/validate.py de.csv --source source-export.csv
+python3 scripts/assemble.py source-export.csv --work work --out de-new-rows.csv \
+    --langs de --new-only
+python3 scripts/validate.py de-new-rows.csv --source source-export.csv
 ```
+
+Deliver with `--new-only`: translated rows only, same header, existing pages
+untouched.
 
 Then import per `docs/pipeline.md` (two passes, unique key `import_key`).
 

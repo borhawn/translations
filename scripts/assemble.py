@@ -118,6 +118,10 @@ def main():
     ap.add_argument("--seo", default="seo/en.json")
     ap.add_argument("--out", required=True)
     ap.add_argument("--langs", default="all")
+    ap.add_argument("--new-only", action="store_true",
+                    help="write only the generated rows, without the original "
+                         "161. The header is identical either way, so the file "
+                         "imports the same; it just leaves existing pages alone.")
     args = ap.parse_args()
 
     ex = E.load(args.csv)
@@ -148,10 +152,15 @@ def main():
             row[E.SLUG] = slugs.unique_slug(slugs.sanitize_title(row[E.TITLE]), taken)
             new_rows.append(row)
 
-    E.write(args.out, ex.raw_lines["header"], ex.raw_lines["records"], new_rows)
-    print(f"original rows {len(ex.rows)}  new rows {len(new_rows)}  "
-          f"skipped (already translated) {skipped}")
-    print(f"total {len(ex.rows) + len(new_rows)} -> {args.out}")
+    originals = [] if args.new_only else ex.raw_lines["records"]
+    E.write(args.out, ex.raw_lines["header"], originals, new_rows)
+    if args.new_only:
+        print(f"new rows {len(new_rows)}  skipped (already translated) {skipped}")
+        print(f"{len(new_rows)} rows (translations only) -> {args.out}")
+    else:
+        print(f"original rows {len(ex.rows)}  new rows {len(new_rows)}  "
+              f"skipped (already translated) {skipped}")
+        print(f"total {len(ex.rows) + len(new_rows)} -> {args.out}")
 
 
 if __name__ == "__main__":
