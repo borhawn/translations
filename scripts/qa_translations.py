@@ -109,15 +109,27 @@ FILENAME_RE = re.compile(r"^[\w.-]+$")
 _MINOR = {"of", "and", "for", "the", "in", "on", "to", "a", "an"}
 
 
-def is_scheme_name(text):
+def is_title_case_name(text):
+    words = re.findall(r"[A-Za-z][\w'-]*", text.strip())
+    return (len(words) >= 2
+            and all(w[0].isupper() or w.lower() in _MINOR for w in words))
+
+
+def is_scheme_name(text, next_text=""):
+    """A registered scheme name, kept in English in every language.
+
+    The markup splits an expansion from its acronym, so the parenthesis can
+    land in this unit ("(Global Organic Textile Standard)", "Better Cotton
+    Initiative (") or in the one after it - "Forest Stewardship Council"
+    followed by "(FSC) Certification".
+    """
     stripped = text.strip()
-    if not (stripped.startswith("(") or stripped.endswith("(")
+    if not is_title_case_name(stripped):
+        return False
+    if (stripped.startswith("(") or stripped.endswith("(")
             or stripped.endswith(")")):
-        return False
-    words = [w for w in re.findall(r"[A-Za-z][\w'-]*", stripped)]
-    if len(words) < 2:
-        return False
-    return all(w[0].isupper() or w.lower() in _MINOR for w in words)
+        return True
+    return next_text.strip().startswith("(")
 
 
 ALLOWED_IDENTICAL = re.compile(
@@ -152,6 +164,7 @@ def check(work, code, units, verbose=True):
         if target is None:
             continue
         source = unit["text"]
+        next_source = units[i + 1]["text"] if i + 1 < len(units) else ""
 
         if "\r" in target:
             bad("carriage-return-in-translation", i)
@@ -179,13 +192,13 @@ def check(work, code, units, verbose=True):
 
         if (len(source) > 25 and target == source
                 and not ALLOWED_IDENTICAL.match(source.strip())
-                and not is_scheme_name(source)
+                and not is_scheme_name(source, next_source)
                 and unprotected_len(source) > 12):
             bad("identical-to-english", i)
         # Only meaningful when there is real prose to render in the script.
         if (script and unprotected_len(source) > 20
                 and not FILENAME_RE.match(source.strip())
-                and not is_scheme_name(source)
+                and not is_scheme_name(source, next_source)
                 and not in_script(target, script)):
             bad("target-script-absent", i)
 
