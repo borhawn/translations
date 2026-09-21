@@ -83,6 +83,15 @@ follows the page order, but the binding constraints are:
 ## Do not
 
 - Do not run any `git` command. The parent session commits.
+- Do not edit `work/qa-exceptions.json`. If you believe a QA finding is
+  acceptable, say so in your report and leave the finding standing. Deciding
+  that a finding does not matter is the parent session's call, not yours.
+- Do not leave an official standard *title* untranslated. A proper name stays
+  in English — Forest Stewardship Council, Better Cotton Initiative, ASME. A
+  descriptive title does not: ISO publishes official translations, so
+  "(Environmental management systems)" for ISO 14001 becomes
+  "(Systèmes de management environnemental)" in French and
+  "(Umweltmanagementsysteme)" in German.
 - Do not touch any language other than the one you were assigned.
 - Do not edit files outside `work/translations/<your lang>.json` (via `add`).
 - Do not "fix" the English. Typos, duplicated content and odd phrasing in the
