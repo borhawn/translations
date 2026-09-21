@@ -21,6 +21,8 @@ from units_io import load_cache, load_units
 from wpml import langs
 
 ENTITY_RE = re.compile(r"&[a-zA-Z#0-9]+;")
+# An "&word" that never closes with a semicolon: a corrupted entity.
+MALFORMED_ENTITY_RE = re.compile(r"&[a-zA-Z#0-9]{2,8}(?![a-zA-Z#0-9]*;)")
 PLACEHOLDER_RE = re.compile(r"\{\{[^{}]*\}\}|%[a-z_]+%|\[/?[a-zA-Z0-9_\-][^\]]*\]")
 # Only the rank_math fields are enforced here. Open Graph is not: several of the
 # site's own og_title/og_description values already overflow in English, and
@@ -156,8 +158,16 @@ def check(work, code, units, verbose=True):
         if source.count("\n") != target.count("\n"):
             bad("paragraph-break-count-changed",
                 f"{i} (en {source.count(chr(10))} / tr {target.count(chr(10))})")
-        if sorted(ENTITY_RE.findall(source)) != sorted(ENTITY_RE.findall(target)):
-            bad("html-entities-changed", i)
+        # Dropping an entity is a legitimate translation choice - Japanese
+        # renders "Materials &amp; Commodities" as 原材料・コモディティ, with no
+        # ampersand at all. Inventing one the source does not have is the real
+        # error, and so is emitting a malformed &xxx sequence.
+        source_entities = set(ENTITY_RE.findall(source))
+        invented = set(ENTITY_RE.findall(target)) - source_entities
+        if invented:
+            bad("html-entity-invented", f"{i} {sorted(invented)}")
+        if MALFORMED_ENTITY_RE.search(target):
+            bad("malformed-entity", i)
         if sorted(PLACEHOLDER_RE.findall(source)) != sorted(PLACEHOLDER_RE.findall(target)):
             bad("placeholder-changed", i)
         if not target.strip():
@@ -175,6 +185,7 @@ def check(work, code, units, verbose=True):
         # Only meaningful when there is real prose to render in the script.
         if (script and unprotected_len(source) > 20
                 and not FILENAME_RE.match(source.strip())
+                and not is_scheme_name(source)
                 and not in_script(target, script)):
             bad("target-script-absent", i)
 
